@@ -32,8 +32,6 @@ EndEnumeration
 
 PrototypeC.i DwmSetWindowAttribute(hwnd.i, dwAttribute.l, *pvAttribute, cbAttribute.l)
 
-
-
 ;- Deklaracje
 Declare Event_Btn_Stop()
 Declare Event_Track_Vol()
@@ -183,7 +181,6 @@ Procedure Open_Window_Main(X = 0, Y = 0, Width = 300, Height = 400)
     SetGadgetColor(#Info_2, #PB_Gadget_BackColor, #kolorDarkBG)
     SetGadgetColor(#Info_2, #PB_Gadget_FrontColor, #kolorBlue)
 
-    ;ButtonGadget(#Btn_Stop, 10, 70, 70, 24, "Stop")
     HyperLinkGadget(#Btn_Stop, 30, 70, 50, 24, " [STOP] ", #kolorGramy)
     SetGadgetColor(#Btn_Stop, #PB_Gadget_BackColor, #kolorDarkBG)
     SetGadgetColor(#Btn_Stop, #PB_Gadget_FrontColor, #kolorBlue)
@@ -216,10 +213,6 @@ Procedure Open_Window_Main(X = 0, Y = 0, Width = 300, Height = 400)
   EndIf
 EndProcedure
 
-
-;-* Main Program
-;SetObjectTheme(#ObjectTheme_DarkBlue)
-
 DisableExplicit
 
 ; ----------------------------------------------------------------
@@ -235,7 +228,6 @@ If FileSize(prefFile) = -1
     
     PreferenceGroup("Stacje")
     WritePreferenceString("M | Off Radio", "http://s3.yesstreaming.net:7062/stream")
-    WritePreferenceString("L | Ostrowiec [95.2 FM]", "http://s1.slotex.pl:7050/stream/1/;?type=http")
     ClosePreferences()
   EndIf
 EndIf
