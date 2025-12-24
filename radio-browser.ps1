@@ -21,11 +21,10 @@ if ($PSBoundParameters.Count -lt 1) {
 
 # lista serwerów
 $resp = Invoke-RestMethod -Method Get -AllowInsecureRedirect -Uri "http://all.api.radio-browser.info/json/servers"
-$servers = $resp.name | Sort-Object -Unique
-$rndServer = Get-Random -InputObject $servers
+$rndServer = $resp.name | Sort-Object -Unique | Get-Random
 
 if ($szukaj) {
-    
+    Write-Output "Using $rndServer"
     # zapytanie
     $api = $rndServer
     $resp = Invoke-RestMethod -Method Get -Uri "$api/json/stations/search?name=$szukaj&hidebroken=true"
